@@ -15,13 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: "Build app for iPhone 15"
-      run: xcodebuild -scheme SimpleApp -configuration Debug -target SimpleApp -destination 'name=iPhone 15,platform=iOS Simulator,arch=x86_64' -derivedDataPath ./build
+    - name: "Build app for iPhone 14"
+      run: xcodebuild -scheme SimpleApp -configuration Debug -target SimpleApp -destination 'name=iPhone 14,platform=iOS Simulator,arch=x86_64' -derivedDataPath ./build
 
-    - name: Boot iPhone 15 simulator.
+    - name: Boot iPhone 14 simulator.
       run: |
         xcrun simctl list devices
-        xcrun simctl boot 'iPhone 15'
+        xcrun simctl boot 'iPhone 14'
 
     - name: install app on simulator
       run: |

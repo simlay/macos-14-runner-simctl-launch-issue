@@ -38,5 +38,5 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: ${{matrx.os}}-screen.png
+        name: ${{matrix.os}}-screen.png
         path: screen.png

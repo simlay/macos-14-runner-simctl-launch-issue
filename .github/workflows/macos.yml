@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: "Build app for iPhone 14"
-      run: xcodebuild -scheme SimpleApp -configuration Debug -target SimpleApp -destination 'name=iPhone 14,platform=iOS Simulator,arch=x86_64' -derivedDataPath ./build
+      run: xcodebuild -scheme SimpleApp -configuration Debug -target SimpleApp -destination 'name=iPhone 14,platform=iOS Simulator' -derivedDataPath ./build
 
     - name: Boot iPhone 14 simulator.
       run: |
@@ -30,7 +30,7 @@ jobs:
 
     - name: Launch app on simulator
       run: |
-        xcrun simctl launch booted com.simlay.net.SimpleApp
+        xcrun simctl launch -w booted com.simlay.net.SimpleApp
 
     - name: Get screenshot of app
       run: |
@@ -38,5 +38,5 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: screen.png
+        name: ${{matrx.os}}-screen.png
         path: screen.png
